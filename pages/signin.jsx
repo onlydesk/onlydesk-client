@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { BiCuboid } from 'react-icons/bi'
 
-const Home = () => {
+const SignIn = () => {
   return (
     <div>
       <Head>
-        <title>OnlyDesk | Home</title>
+        <title>OnlyDesk | Sign in</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -21,22 +21,18 @@ const Home = () => {
                 <div className="p-8">
                   <form>
                     <div className="mb-5">
-                      <label className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Username</label>
-                      <input type="text" name="username" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
-                    </div>
-                    <div className="mb-5">
                       <label className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Email</label>
                       <input type="text" name="email" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
                     </div>
                     <div className="mb-5">
-                      <label for="password" className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Password</label>
+                      <label className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Password</label>
                       <input type="text" name="password" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
                     </div>
-                    <button className="w-full p-3 mt-4 bg-pink-600 text-white rounded shadow tracking-wider font-medium">Sign up</button>
+                    <button className="w-full p-3 mt-4 bg-pink-600 text-white rounded shadow tracking-wider font-medium">Sign in</button>
                   </form>
                 </div>
                 <div className="flex justify-between p-8 text-sm border-t border-gray-300 bg-gray-100">
-                  <Link href="/signin" className="font-medium tracking-wider">Already have an account?</Link>
+                  <Link href="/" className="font-medium tracking-wider">Don't have an account yet?</Link>
                 </div>
               </div>
             </div>
@@ -48,4 +44,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default SignIn
