@@ -26,11 +26,11 @@ const Home = () => {
                     </div>
                     <div className="mb-5">
                       <label className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Email</label>
-                      <input type="text" name="email" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
+                      <input type="email" name="email" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
                     </div>
                     <div className="mb-5">
                       <label className="block mb-2 text-sm font-medium text-gray-600 tracking-wider">Password</label>
-                      <input type="text" name="password" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
+                      <input type="password" name="password" className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none" />
                     </div>
                     <button className="w-full p-3 mt-4 bg-pink-600 text-white rounded shadow tracking-wider font-medium">Sign up</button>
                   </form>
