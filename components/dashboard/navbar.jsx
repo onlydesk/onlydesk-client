@@ -28,7 +28,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 100 }}
             >
                 <div className="mr-4">
-                    <img className="inline-block h-10 w-10 rounded-full ring-2 ring-pink-500" src="https://bit.ly/2NVl25X" alt="" />
+                    <img className="object-cover bg-no-repeat bg-center inline-block h-10 w-10 rounded-lg ring-2 ring-pink-500" src="https://bit.ly/2NVl25X" alt="" />
                 </div>
                 <ul className="flex justify-center items-center list-none">
                     <li onClick={handleShow} className="cursor-pointer ml-1 mr-1 px-4 py-2 tracking-wider text-white hover:text-gray-700 bg-transparent hover:bg-gray-200 rounded">
