@@ -1,8 +1,29 @@
+import { QueryClient, useQuery } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+
+import QueryLinks from '../../handlers/Links'
 import { Navbar, Mobile, PageLinks } from '../../components'
 
-const res = { "user": "ines98", "profile": { "id": 2, "picture": "/Users/franciscomendes/Desktop/GIT/onlydesk/onlydesk-api/uploads/4f7074fd4e552a396e32672184cd3a54-drew-hays-agGIKYs4mYs-unsplash.jpg", "occupation": "Interior Designer", "bio": "Learning new things 🍀" }, "links": [{ "id": 2, "name": "Pinterest", "url": "https://www.pinterest.com" }, { "id": 21, "name": "Tumblr", "url": "https://www.tumblr.com" }, { "id": 22, "name": "Xing", "url": "https://www.xing.com" }, { "id": 23, "name": "LinkedIn", "url": "https://www.linkedin.com" }, { "id": 24, "name": "Instagram", "url": "https://www.instagram.com" }, { "id": 25, "name": "Unsplash", "url": "https://www.unsplash.com" }, { "id": 26, "name": "Youtube", "url": "https://www.youtube.com" }] }
+export async function getServerSideProps() {
+    const queryClient = new QueryClient()
+    await queryClient.prefetchQuery('user', QueryLinks)
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient),
+        },
+    }
+}
+
+const userToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjE1MDIxODAzfQ.G11D94okVCdJf__o2l6Kuiam0i9DAOnN-483TfMSRow'
 
 const Dashboard = () => {
+    const {
+        data: response,
+        isLoading: loading,
+        isError: error
+    } = useQuery(['links', { token: userToken }], QueryLinks)
+    if (loading) return <h1>loading</h1>
+    if (error) return <h1>loading</h1>
     return (
         <main className="h-screen">
             <Navbar />
@@ -20,7 +41,7 @@ const Dashboard = () => {
                     <button className="self-end ml-2 p-3 mt-4 bg-pink-600 text-white rounded shadow tracking-wider font-medium">Create</button>
                 </form>
             </div>
-            <PageLinks data={res} />
+            <PageLinks data={response.data} />
         </main>
     )
 }
