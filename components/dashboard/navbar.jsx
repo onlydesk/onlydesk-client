@@ -12,15 +12,25 @@ const Navbar = () => {
         setShow(!show)
     }
     return (
-        <div className="flex items-center justify-center bottom-0 mb-6 left-0 ml-6 fixed">
+        <div className="invisible md:visible flex items-center justify-center bottom-0 mb-6 left-0 ml-6 fixed z-50">
             {show ? (
-                <button onClick={handleShow} className="p-4 rounded-full bg-gray-800 shadow-xl border border-gray-500">
+                <motion.button
+                    onClick={handleShow}
+                    className="p-4 rounded-full bg-gray-800 shadow-xl border border-gray-500"
+                    whileTap={{ scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 100 }}
+                >
                     <MdClose className="text-white text-xl" />
-                </button>
+                </motion.button>
             ) : (
-                <button onClick={handleShow} className="p-4 rounded-full bg-gray-800 shadow-xl border border-gray-500">
+                <motion.button
+                    onClick={handleShow}
+                    className="p-4 rounded-full bg-gray-800 shadow-xl border border-gray-500"
+                    whileTap={{ scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 100 }}
+                >
                     <HiOutlineMenuAlt4 className="text-white text-xl" />
-                </button>
+                </motion.button>
             )}
             <motion.nav
                 className="ml-6 flex justify-center items-center w-full bg-gray-800 shadow-xl border border-gray-500 p-4 rounded-md max-w-xl"
@@ -35,7 +45,7 @@ const Navbar = () => {
                         <Link href="/dashboard" >Links</Link>
                     </li>
                     <li onClick={handleShow} className="cursor-pointer ml-1 mr-1 px-4 py-2 tracking-wider text-white hover:text-gray-700 bg-transparent hover:bg-gray-200 rounded">
-                        <Link href="/dashboard">Profile</Link>
+                        <Link href="/dashboard/profile">Profile</Link>
                     </li>
                     <li onClick={handleShow} className="cursor-pointer ml-1 mr-1 px-4 py-2 tracking-wider text-white hover:text-gray-700 bg-transparent hover:bg-gray-200 rounded">
                         <Link href="/dashboard">
